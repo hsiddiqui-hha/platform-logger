@@ -23,17 +23,23 @@
 - **Environment Variables:** 
   - Users can override specific configurations using environment variables like 
     - LOG_LEVEL, LOG_DESTINATION, LOG_FILE_PATH, and LOG_FORMAT.
-- **Anonymizer Configs**
-  - **"anonymize_fields"** populate this field with the arguments that are explicitly passed to the logs , to annonymize them
-    - EG: ["user_id", "email", "ssn"] it is an array of fields, all these arguments will be anonymized in the logs
-  - **"anonymize_patterns"** these are pattern (regex) that will be used to annonymize messages, it will be better to keep them low, or it can impact writes.
-- **Supported Log file formats**
-  - json
-  - plain
+  - - **Supported Log file formats**
+    - json
+    - plain
 
 - **Supported Destinations**
-  - file
-  - console
+    - file
+    - console
+    - 
+### **Anonymizer Configs**
+- **"anonymize_fields"** populate this field with the arguments that are explicitly passed to the logs , to annonymize them
+  - EG: ["user_id", "email", "ssn"] it is an array of fields, all these arguments will be anonymized in the logs
+- **"anonymize_patterns"** these are pattern (regex) that will be used to annonymize messages, it will be better to keep them low, or it can impact writes.
+- Disabling anonymizer
+  - set "use_anonymizer": false in log_config.json
+
+
+
 
 ### Example usage
 - Initialising the logger with custom log config

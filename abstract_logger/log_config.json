@@ -3,6 +3,7 @@
     "log_destination": "file or console",
     "log_file_path": "/var/log/my_app.log",
     "log_format": "json or plain",
+    "use_anonymizer": false,
     "anonymize_fields": ["user_id", "email", "ssn"],
     "anonymize_patterns": {
         "email": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",

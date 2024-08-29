@@ -9,6 +9,7 @@ class AnonymizationAdapter(ABC):
 class Anonymizer(AnonymizationAdapter):
     def __init__(self, config):
         self.pre_scrub_patterns = config.get("anonymize_patterns", {})
+        self.use_scrubadub = config.get("use_scrubadub", True)
 
     def pre_scrub(self, text: str) -> str:
         for pattern in self.pre_scrub_patterns.values():
@@ -16,5 +17,7 @@ class Anonymizer(AnonymizationAdapter):
         return text
 
     def anonymize(self, text: str) -> str:
-        text = self.pre_scrub(text)  # First scrub with regex based on config
-        return scrubadub.clean(text)  # Then pass to Scrubadub
+        text = self.pre_scrub(text)  # Always perform pre-scrubbing
+        if self.use_scrubadub:
+            text = scrubadub.clean(text)  # Only apply Scrubadub if enabled
+        return text
