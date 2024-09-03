@@ -1,11 +1,11 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="log_abstractor",
     version="1.1.2",
     packages=find_packages(),
     install_requires=[
-        "structlog>=24.4.0","scrubadub>=2.0.1",
+        "structlog>=24.4.0", "scrubadub>=2.0.1",
     ],
     description="Optimized anonymizer with pre-scrubbing.",
     author="Dipanjan Mazumder",

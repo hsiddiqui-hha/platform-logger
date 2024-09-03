@@ -1,13 +1,17 @@
 {
-    "log_level": "DEBUG",
-    "log_destination": "file or console",
-    "log_file_path": "/var/log/my_app.log",
-    "log_format": "json or plain",
-    "use_anonymizer": false,
-    "anonymize_fields": ["user_id", "email", "ssn"],
-    "anonymize_patterns": {
-        "email": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
-        "ssn": "\\b\\d{3}-\\d{2}-\\d{4}\\b",
-        "phone": "\\b\\d{3}[-.\\s]?\\d{3}[-.\\s]?\\d{4}\\b"
-    }
+  "log_level": "DEBUG",
+  "log_destination": "file or console",
+  "log_file_path": "/var/log/app.log",
+  "log_format": "json or plain",
+  "use_anonymizer": false,
+  "anonymize_fields": [
+    "user_id",
+    "email",
+    "ssn"
+  ],
+  "anonymize_patterns": {
+    "email": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
+    "ssn": "\\b\\d{3}-\\d{2}-\\d{4}\\b",
+    "phone": "\\b\\d{3}[-.\\s]?\\d{3}[-.\\s]?\\d{4}\\b"
+  }
 }

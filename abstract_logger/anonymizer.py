@@ -1,10 +1,15 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod, ABC
+
 import scrubadub
-import re
+
+from .imports import *
+
+
 class AnonymizationAdapter(ABC):
     @abstractmethod
     def anonymize(self, text: str) -> str:
         pass
+
 
 class Anonymizer(AnonymizationAdapter):
     def __init__(self, config):
@@ -13,11 +18,11 @@ class Anonymizer(AnonymizationAdapter):
 
     def pre_scrub(self, text: str) -> str:
         for pattern in self.pre_scrub_patterns.values():
-            text = re.sub(pattern, "<anonymized>", text)
+            text = re.sub(pattern, "[ANONYMIZED]", text)
         return text
 
     def anonymize(self, text: str) -> str:
-        text = self.pre_scrub(text)  # Always perform pre-scrubbing
+        text = self.pre_scrub(text)
         if self.use_scrubadub:
-            text = scrubadub.clean(text)  # Only apply Scrubadub if enabled
+            text = scrubadub.clean(text)
         return text
